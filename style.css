@@ -1,0 +1,89 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+/*  */
+body {
+	background-color: grey;
+}
+
+/* Speaker Grid Using Grid */
+
+.spkr-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 1em;
+	justify-items: center;
+}
+
+.featured-spkr img {
+	width: 200px;
+}
+
+
+@media (min-width: 991px) {
+	body {
+		background-color: orange;
+	}
+
+	.featured-spkr,
+	.spkr {
+		position: relative;
+	}
+	.featured-spkr .content,
+	.spkr .content {
+		position: absolute;
+		bottom: 0;
+		padding-left: 10px;
+	}
+
+	.spkr-grid {
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: auto;
+		grid-gap: 5px;
+		grid-template-areas:
+			'a a b c'
+			'a a d e';
+	}
+
+	.a {
+		grid-area: a;
+	}
+	.b {
+		grid-area: b;
+	}
+	.c {
+		grid-area: c;
+	}
+	.d {
+		grid-area: d;
+	}
+	.e {
+		grid-area: e;
+	}
+
+	.featured-spkr img,.b img,
+	.c img,
+	.d img,
+	.e img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		filter: brightness(70%);
+	}
+
+	.b img,
+	.c img,
+	.d img,
+	.e img {
+
+		min-width: 260px;
+
+	}
+}
