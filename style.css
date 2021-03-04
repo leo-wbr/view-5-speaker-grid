@@ -114,4 +114,6 @@ h1:after{content:'991px +'; }
 	}
 }
 
-
+.spkr {
+  text-center:test;
+}
