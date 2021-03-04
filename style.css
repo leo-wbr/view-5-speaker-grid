@@ -16,55 +16,60 @@ body {
 /****** SPEAKER GRID USING GRID ******/
 
 /****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
-h1:after{ display:block; content:'Mobile - View'; color:white; font-size:.85em;}
+h1:after {
+	display: block;
+	content: 'Mobile - View';
+	color: white;
+	font-size: 0.85em;
+}
 /****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
 
 .spkr-grid {
-	display: grid;
-	grid-template-columns: 1fr;
-	justify-items: center;
-	padding: 0;
-	margin: 5px 0 0 0;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	margin: 1em 0 0 0;
+}
+.spkr {
+	flex-basis: 50%;
+	padding: 5px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
 }
 
-.featured-spkr img {
+.spkr img {
 	width: 200px;
 }
 
 .spkr .content {
-  text-align: center;;
+	text-align: center;
 }
 
-
-
 @media (min-width: 768px) {
-/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
-h1:after{content:'768px - 991px'; }
-/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
-
-  .spkr-grid {
-    grid-template-columns:1fr 1fr;
-		grid-template-areas:
-			'featured-spkr featured-spkr'
-			'speaker-b speaker-c'
-      'speaker-d speaker-e';
+	/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
+	h1:after {
+		content: '768px - 991px';
 	}
-  .featured-spkr img {
-    width: 300px;
-  }
+	/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
 
-  .featured-spkr {
-		grid-area: featured-spkr;
+	.spkr {
+		flex-basis: 35%;
 	}
 }
 
 @media (min-width: 991px) {
+	/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
+	h1:after {
+		content: '991px +';
+	}
+	/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
 
-/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
-h1:after{content:'991px +'; }
-/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
+	.spkr {
+		flex-basis: 20%;
+	}
 
-	.spkr-grid {
+	/* .spkr-grid {
 		grid-gap: 5px;
 		grid-auto-rows: 250px;
 	}
@@ -78,10 +83,10 @@ h1:after{content:'991px +'; }
 		grid-template-areas:
 			'speaker-b speaker-c featured-spkr featured-spkr'
 			'speaker-d speaker-e featured-spkr featured-spkr';
-	}
+	} */
 
 	/* Speaker Info Section Styling */
-	.spkr {
+	/* 	.spkr {
 		position: relative;
 	}
 
@@ -99,9 +104,9 @@ h1:after{content:'991px +'; }
 
 	.spkr .content p {
 		margin-bottom: 5px;
-	}
+	} */
 	/* Speaker Image Stylings */
-	.spkr img {
+	/* .spkr img {
 		width: 100%;
 		min-width: 260px;
 		height: 100%;
@@ -111,9 +116,5 @@ h1:after{content:'991px +'; }
 	}
 	.spkr img:hover {
 		filter: brightness(100%) grayscale(0%);
-	}
-}
-
-.spkr {
-  text-center:test;
+	} */
 }
