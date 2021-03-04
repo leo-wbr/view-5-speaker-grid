@@ -17,11 +17,8 @@ body {
 
 .spkr-grid {
 	display: grid;
-	/* grid-template-columns: 1fr 1fr; */
-	justify-items: center;
 	grid-template-columns: 1fr;
-	width: 50%;
-	float: left;
+	justify-items: center;
 	padding: 0;
 	margin: 5px 0 0 0;
 }
@@ -30,11 +27,45 @@ body {
 	width: 200px;
 }
 
+.spkr .content {
+  text-align: center;;
+}
+
+/* DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES */
+h1:after{ display:block; content:'Mobile - View'; color:white; font-size:.85em;}
+/* DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES */
+
+@media (min-width: 768px) {
+
+  /* DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES */
+h1:after{content:'768px - 991px'; }
+/* DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES */
+
+  .spkr-grid {
+    grid-template-columns:1fr 1fr;
+		grid-template-areas:
+			'featured-spkr featured-spkr'
+			'speaker-b speaker-c'
+      'speaker-d speaker-e';
+	}
+  .featured-spkr img {
+    width: 300px;
+  }
+
+  .featured-spkr {
+		grid-area: featured-spkr;
+	}
+}
+
 @media (min-width: 991px) {
+
+/* DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES */
+h1:after{content:'991px +'; }
+/* DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES */
+
 	.spkr-grid {
 		grid-gap: 5px;
 		grid-auto-rows: 250px;
-		width: 100%;
 	}
 
 	.spkr-grid:nth-child(odd) {
@@ -43,14 +74,9 @@ body {
 			'featured-spkr featured-spkr speaker-d speaker-e';
 	}
 	.spkr-grid:nth-child(even) {
-
 		grid-template-areas:
 			'speaker-b speaker-c featured-spkr featured-spkr'
 			'speaker-d speaker-e featured-spkr featured-spkr';
-	}
-	/* Grid Areas */
-	.featured-spkr {
-		grid-area: featured-spkr;
 	}
 
 	/* Speaker Info Section Styling */
@@ -58,22 +84,31 @@ body {
 		position: relative;
 	}
 
-	.spkr .content {
+  .spkr .content {
+    text-align: left;
 		position: absolute;
 		bottom: 0;
 		padding-left: 10px;
+		text-shadow: 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.7);
+	}
+
+	.featured-spkr .content {
+		font-size: 1.3rem;
 	}
 
 	.spkr .content p {
 		margin-bottom: 5px;
 	}
-
 	/* Speaker Image Stylings */
 	.spkr img {
 		width: 100%;
 		min-width: 260px;
 		height: 100%;
 		object-fit: cover;
-		filter: brightness(70%);
+		filter: brightness(90%) grayscale(20%);
+		transition: linear 200ms;
+	}
+	.spkr img:hover {
+		filter: brightness(100%) grayscale(0%);
 	}
 }
