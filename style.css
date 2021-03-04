@@ -15,6 +15,10 @@ body {
 
 /****** SPEAKER GRID USING GRID ******/
 
+/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
+h1:after{ display:block; content:'Mobile - View'; color:white; font-size:.85em;}
+/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
+
 .spkr-grid {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -31,15 +35,12 @@ body {
   text-align: center;;
 }
 
-/* DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES */
-h1:after{ display:block; content:'Mobile - View'; color:white; font-size:.85em;}
-/* DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES */
+
 
 @media (min-width: 768px) {
-
-  /* DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES */
+/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
 h1:after{content:'768px - 991px'; }
-/* DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES */
+/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
 
   .spkr-grid {
     grid-template-columns:1fr 1fr;
@@ -59,9 +60,9 @@ h1:after{content:'768px - 991px'; }
 
 @media (min-width: 991px) {
 
-/* DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES */
+/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
 h1:after{content:'991px +'; }
-/* DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES */
+/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
 
 	.spkr-grid {
 		grid-gap: 5px;
@@ -112,3 +113,5 @@ h1:after{content:'991px +'; }
 		filter: brightness(100%) grayscale(0%);
 	}
 }
+
+
