@@ -13,79 +13,91 @@ body {
 	background-color: grey;
 }
 
-/****** SPEAKER GRID USING GRID ******/
+/****** SPEAKER GRID USING GRID / FlexBox ******/
 
 /****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
-h1:after{ display:block; content:'Mobile - View'; color:white; font-size:.85em;}
+h1:after {
+	display: block;
+	content: 'Mobile - View';
+	color: white;
+	font-size: 0.85em;
+}
 /****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
 
 .spkr-grid {
-	display: grid;
-	grid-template-columns: 1fr;
-	justify-items: center;
-	padding: 0;
-	margin: 5px 0 0 0;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	margin: 1em 0 0 0;
+}
+.spkr {
+	flex-basis: 50%;
+	padding: 5px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
 }
 
-.featured-spkr img {
-	width: 200px;
+.spkr img {
+	width: 100%;
 }
 
 .spkr .content {
-  text-align: center;;
+	text-align: center;
 }
 
-
-
 @media (min-width: 768px) {
-/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
-h1:after{content:'768px - 991px'; }
-/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
-
-  .spkr-grid {
-    grid-template-columns:1fr 1fr;
-		grid-template-areas:
-			'featured-spkr featured-spkr'
-			'speaker-b speaker-c'
-      'speaker-d speaker-e';
+	/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
+	h1:after {
+		content: '768px - 991px';
 	}
-  .featured-spkr img {
-    width: 300px;
-  }
+	/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
 
-  .featured-spkr {
-		grid-area: featured-spkr;
+  .spkr-grid {justify-content: space-around;}
+	.spkr {
+		flex-basis: 30%;
+
 	}
 }
 
 @media (min-width: 991px) {
+	/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
+	h1:after {
+		content: '991px +';
+	}
+	/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
 
-/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
-h1:after{content:'991px +'; }
-/****** DELETE BEFORE GOING LIVE - ON ALL MEDIA QUERIES ******/
-
-	.spkr-grid {
-		grid-gap: 5px;
-		grid-auto-rows: 250px;
+	.spkr {
+		flex-basis: 20%;
 	}
 
-	.spkr-grid:nth-child(odd) {
+  .spkr-grid.featured {
+    display: grid;
+    grid-auto-rows: 250px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .spkr-grid.featured .featured-spkr {
+		grid-area: featured-spkr;
+	}
+
+  .spkr-grid.featured:nth-child(odd) {
 		grid-template-areas:
 			'featured-spkr featured-spkr speaker-b speaker-c'
 			'featured-spkr featured-spkr speaker-d speaker-e';
 	}
-	.spkr-grid:nth-child(even) {
+	.spkr-grid.featured:nth-child(even) {
 		grid-template-areas:
 			'speaker-b speaker-c featured-spkr featured-spkr'
 			'speaker-d speaker-e featured-spkr featured-spkr';
 	}
 
 	/* Speaker Info Section Styling */
-	.spkr {
+		.spkr-grid.featured .spkr {
 		position: relative;
+    justify-content: left;
 	}
 
-  .spkr .content {
+  .spkr-grid.featured .spkr .content {
     text-align: left;
 		position: absolute;
 		bottom: 0;
@@ -93,25 +105,22 @@ h1:after{content:'991px +'; }
 		text-shadow: 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.7);
 	}
 
-	.featured-spkr .content {
+	.spkr-grid.featured .featured-spkr .content {
 		font-size: 1.3rem;
 	}
 
-	.spkr .content p {
+	.spkr-grid.featured .spkr .content p {
 		margin-bottom: 5px;
 	}
 	/* Speaker Image Stylings */
-	.spkr img {
+	.spkr-grid.featured .spkr img {
 		width: 100%;
-		min-width: 260px;
 		height: 100%;
 		object-fit: cover;
 		filter: brightness(90%) grayscale(20%);
 		transition: linear 200ms;
 	}
-	.spkr img:hover {
+	.spkr-grid.featured .spkr img:hover {
 		filter: brightness(100%) grayscale(0%);
 	}
 }
-
-
