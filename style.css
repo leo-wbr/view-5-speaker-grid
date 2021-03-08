@@ -39,8 +39,7 @@ h1:after {
 }
 
 .spkr img {
-	width: 200px;
-  min-width:100%;
+	width: 100%;
 }
 
 .spkr .content {
@@ -75,10 +74,12 @@ h1:after {
   .spkr-grid.featured {
     display: grid;
     grid-auto-rows: 250px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   }
   .spkr-grid.featured .featured-spkr {
 		grid-area: featured-spkr;
 	}
+
   .spkr-grid.featured:nth-child(odd) {
 		grid-template-areas:
 			'featured-spkr featured-spkr speaker-b speaker-c'
@@ -114,7 +115,6 @@ h1:after {
 	/* Speaker Image Stylings */
 	.spkr-grid.featured .spkr img {
 		width: 100%;
-		min-width: 260px;
 		height: 100%;
 		object-fit: cover;
 		filter: brightness(90%) grayscale(20%);
