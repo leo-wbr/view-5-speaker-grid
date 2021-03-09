@@ -41,6 +41,7 @@ h1:after {
 .spkr img {
   width:200px;
   height:200px;
+  object-fit: cover;
 }
 
 .spkr .content {
@@ -116,7 +117,6 @@ h1:after {
 	.spkr-grid.featured-row .spkr img {
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
 		filter: brightness(90%) grayscale(20%);
 		transition: linear 200ms;
 	}
