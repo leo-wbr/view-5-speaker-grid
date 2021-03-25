@@ -123,6 +123,8 @@
 
     ]
 
+
+
     const domMessages = {
       enoughSpeakers() {
         return 'You have enough speakers for featured speaker layout'
@@ -147,9 +149,10 @@
       const createSpkrGrid = document.createElement('div');
       createSpkrGrid.classList.add('row', 'spkr-grid');
       spkrContainer.appendChild(createSpkrGrid);
-      addSpkrDivs(createSpkrGrid, counter)
+      createSpkrDivContents(createSpkrGrid, counter)
     }
-    const addSpkrDivs = function (createSpkrGrid, counter) {
+
+    const createSpkrDivContents = function (createSpkrGrid, counter) {
       addSpkrButton.addEventListener('click', function () {
         const getSpeakers = Array.from(document.querySelectorAll('.spkr'));
         const createSpkrDiv = document.createElement('div');
@@ -190,19 +193,26 @@
         `
         createContentDiv.appendChild(createContentPar);
         //
-        if (spkrContainer.children.length == 1) {
-          counter++
-          createSpkrGrid.appendChild(createSpkrDiv);
+        counter++
+        //
+        addSpkrDivs(createSpkrGrid, counter, createSpkrDiv, getSpeakers)
+        addRadioBtns()
+      });
+    }
 
+    const addSpkrDivs = function (createSpkrGrid, counter, createSpkrDiv, getSpeakers) {
+      if (spkrContainer.children.length == 1) {
+        console.log(counter)
+          createSpkrGrid.appendChild(createSpkrDiv);
         } else if (spkrContainer.children.length > 1) {
-          counter++
           createSpkrGrid.appendChild(createSpkrDiv);
         }
-        //
-        const radioBtns = document.querySelectorAll('[id^="radio-"]');
-        radioBtns.forEach(function (radioBtn) {
-          radioBtn.addEventListener('click', getImages);
-        });
+    }
+
+    const addRadioBtns = function () {
+      const radioBtns = document.querySelectorAll('[id^="radio-"]');
+      radioBtns.forEach(function (radioBtn) {
+        radioBtn.addEventListener('click', getImages);
       });
     }
 
