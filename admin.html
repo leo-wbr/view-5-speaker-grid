@@ -38,12 +38,10 @@
     </div>
     <div class="row">
       <button class="btn btn-info add-row-btn">Click To Add Row</button>
-      <button class="btn btn-warning add-spkr-btn">Add Speaker</button>
+      <!-- <button class="btn btn-warning add-spkr-btn">Add Speaker</button> -->
     </div>
   </div>
-  <div class="container spkr-container">
-
-  </div>
+  <div class="container spkr-container"></div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -58,36 +56,81 @@
     crossorigin="anonymous"></script>
 
   <style>
-    .spkr-grid .spkr {
-      position: relative;
-    }
+    /* Admin Radio Button label positioning and styling */
+    .spkr-grid .spkr {position: relative;}
+    .spkr-grid .spkr .radio-btn {color: #FFF;background-color: rgba(255, 0, 0, 0.379);padding: 5px;margin: 0 0;position: absolute;left: 5px;z-index: 9999999;}
+    .spkr-grid .spkr .radio-btn label {margin-bottom: 0;}
 
-    .spkr-grid .spkr .radio-btn {
-      color: #FFF;
-      background-color: rgba(255, 0, 0, 0.379);
-      padding: 5px;
-      margin: 0 0;
-      position: absolute;
-      left: 5px;
-      z-index: 9999999;
-    }
-
-    .spkr-grid .spkr .radio-btn label {
-      margin-bottom: 0;
-    }
-
-    .spkr-container {
-      margin-top: 10px;
-      border: 2px solid darkblue;
-    }
-
+    /*  */
+    .spkr-container {margin-top: 10px;border: 2px solid darkblue;}
     .spkr-grid {
-      border: 1px solid lightsalmon;
-
+      display:block;
+      border-bottom:5px solid rgba(255, 255, 255, 0.527)
     }
+
+    .spkr-grid > * {
+      display:flex;
+      flex-flow:row wrap;
+    }
+
+    .spkr-grid.featured-row{ display:block;}
+
+    .spkr-grid.featured-row .speakers-wrapper {
+    display: grid;
+    grid-auto-rows: 250px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+   .spkr-grid.featured-row .speakers-wrapper .featured-spkr {
+		grid-area: featured-spkr;
+	}
+
+   .spkr-grid.featured-row:nth-child(odd) .speakers-wrapper  {
+		grid-template-areas:
+			'featured-spkr featured-spkr speaker-b speaker-c'
+			'featured-spkr featured-spkr speaker-d speaker-e';
+	}
+	 .spkr-grid.featured-row:nth-child(even) .speakers-wrapper {
+		grid-template-areas:
+			'speaker-b speaker-c featured-spkr featured-spkr'
+			'speaker-d speaker-e featured-spkr featured-spkr';
+	}
+
+	/* Speaker Info Section Styling */
+		 .spkr-grid.featured-row .speakers-wrapper .spkr  {
+		position: relative;
+    justify-content: left;
+	}
+
+   .spkr-grid.featured-row .speakers-wrapper .spkr .content {
+    text-align: left;
+		position: absolute;
+		bottom: 0;
+		padding-left: 10px;
+		text-shadow: 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.7);
+	}
+
+	 .spkr-grid.featured-row .speakers-wrapper .featured-spkr .content {
+		font-size: 1.3rem;
+	}
+
+	 .spkr-grid.featured-row .speakers-wrapper .spkr .content p {
+		margin-bottom: 5px;
+	}
+	/* Speaker Image Stylings */
+	 .spkr-grid.featured-row .speakers-wrapper .spkr img  {
+		width: 100%;
+		height: 100%;
+		filter: brightness(90%) grayscale(20%);
+		transition: linear 200ms;
+	}
+	 .spkr-grid.featured-row .speakers-wrapper .spkr img:hover {
+		filter: brightness(100%) grayscale(0%);
+	}
+
   </style>
 
-  <script>
+  <script src="admin.js"></script>
+  <!-- <script>
 
     const data = [
       {
@@ -249,7 +292,7 @@
 
     // Event Listeners
     addRowButton.addEventListener('click', addSpkrRow);
-  </script>
+  </script> -->
 </body>
 
 </html>
