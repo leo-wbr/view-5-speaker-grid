@@ -29,6 +29,7 @@ h1:after {
 	justify-content: center;
 	align-content: center;
 	margin: 1em 0 0 0;
+
 }
 .spkr {
 	flex-basis: 50%;
@@ -77,23 +78,23 @@ h1:after {
     grid-auto-rows: 250px;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   }
-  .spkr-grid.featured-row .featured-spkr {
+  .spkr-grid.featured-row .featured-spkr{
 		grid-area: featured-spkr;
 	}
 
-  .spkr-grid.featured-row:nth-child(odd) {
+  .spkr-grid.featured-row:nth-child(odd)  {
 		grid-template-areas:
 			'featured-spkr featured-spkr speaker-b speaker-c'
 			'featured-spkr featured-spkr speaker-d speaker-e';
 	}
-	.spkr-grid.featured-row:nth-child(even) {
+	.spkr-grid.featured-row:nth-child(even){
 		grid-template-areas:
 			'speaker-b speaker-c featured-spkr featured-spkr'
 			'speaker-d speaker-e featured-spkr featured-spkr';
 	}
 
 	/* Speaker Info Section Styling */
-		.spkr-grid.featured-row .spkr {
+		.spkr-grid.featured-row .spkr  {
 		position: relative;
     justify-content: left;
 	}
@@ -106,7 +107,7 @@ h1:after {
 		text-shadow: 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.7);
 	}
 
-	.spkr-grid.featured-row .featured-spkr .content {
+	.spkr-grid.featured-row .featured-spkr .content{
 		font-size: 1.3rem;
 	}
 
