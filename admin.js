@@ -105,7 +105,7 @@ const populateSpeakers = function (speakerDivs) {
     <input type="radio" id="radio-${i}" name="featured" value="radio-${i}">
     <label for="radio-${i}">Featured?</label>
    </div>
-   <img class="img-fluid" src="${speakerData[`${i}`]['img']}">
+   <img class="img-fluid speaker__img" src="${speakerData[`${i}`]['img']}">
   <div class="content">
     <p class="text-white">
       <span class="spkr-name">${speakerData[`${i}`]['name']}</span> <br>

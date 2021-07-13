@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="speaker-grid-styles.css">
   <title>5 Grid Speaker - Admin </title>
 </head>
 
@@ -57,242 +58,105 @@
 
   <style>
     /* Admin Radio Button label positioning and styling */
-    .spkr-grid .spkr {position: relative;}
-    .spkr-grid .spkr .radio-btn {color: #FFF;background-color: rgba(255, 0, 0, 0.379);padding: 5px;margin: 0 0;position: absolute;left: 5px;z-index: 9999999;}
-    .spkr-grid .spkr .radio-btn label {margin-bottom: 0;}
+    .spkr-grid .spkr {
+      position: relative;
+    }
+
+
+
+    .spkr-grid .spkr .radio-btn {
+      color: #FFF;
+      background-color: rgba(255, 0, 0, 0.379);
+      padding: 5px;
+      margin: 0 0;
+      position: absolute;
+      left: 5px;
+      z-index: 9999999;
+    }
+
+    .spkr-grid .spkr .radio-btn label {
+      margin-bottom: 0;
+    }
 
     /*  */
-    .spkr-container {margin-top: 10px;border: 2px solid darkblue;}
+    .spkr-container {
+      margin-top: 10px;
+      border: 2px solid darkblue;
+    }
+
     .spkr-grid {
-      display:block;
-      border-bottom:5px solid rgba(255, 255, 255, 0.527)
+      display: block;
+      border-bottom: 5px solid rgba(255, 255, 255, 0.527)
     }
 
-    .spkr-grid > * {
-      display:flex;
-      flex-flow:row wrap;
+    .spkr-grid>* {
+      display: flex;
+      flex-flow: row wrap;
     }
 
-    .spkr-grid.featured-row{ display:block;}
+    .spkr-grid.featured-row {
+      display: block;
+    }
 
     .spkr-grid.featured-row .speakers-wrapper {
-    display: grid;
-    grid-auto-rows: 250px;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-  }
-   .spkr-grid.featured-row .speakers-wrapper .featured-spkr {
-		grid-area: featured-spkr;
-	}
+      display: grid;
+      grid-auto-rows: 250px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    }
 
-   .spkr-grid.featured-row:nth-child(odd) .speakers-wrapper  {
-		grid-template-areas:
-			'featured-spkr featured-spkr speaker-b speaker-c'
-			'featured-spkr featured-spkr speaker-d speaker-e';
-	}
-	 .spkr-grid.featured-row:nth-child(even) .speakers-wrapper {
-		grid-template-areas:
-			'speaker-b speaker-c featured-spkr featured-spkr'
-			'speaker-d speaker-e featured-spkr featured-spkr';
-	}
+    .spkr-grid.featured-row .speakers-wrapper .featured-spkr {
+      grid-area: featured-spkr;
+    }
 
-	/* Speaker Info Section Styling */
-		 .spkr-grid.featured-row .speakers-wrapper .spkr  {
-		position: relative;
-    justify-content: left;
-	}
+    .spkr-grid.featured-row:nth-child(odd) .speakers-wrapper {
+      grid-template-areas:
+        'featured-spkr featured-spkr speaker-b speaker-c'
+        'featured-spkr featured-spkr speaker-d speaker-e';
+    }
 
-   .spkr-grid.featured-row .speakers-wrapper .spkr .content {
-    text-align: left;
-		position: absolute;
-		bottom: 0;
-		padding-left: 10px;
-		text-shadow: 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.7);
-	}
+    .spkr-grid.featured-row:nth-child(even) .speakers-wrapper {
+      grid-template-areas:
+        'speaker-b speaker-c featured-spkr featured-spkr'
+        'speaker-d speaker-e featured-spkr featured-spkr';
+    }
 
-	 .spkr-grid.featured-row .speakers-wrapper .featured-spkr .content {
-		font-size: 1.3rem;
-	}
+    /* Speaker Info Section Styling */
+    .spkr-grid.featured-row .speakers-wrapper .spkr {
+      position: relative;
+      justify-content: left;
+    }
 
-	 .spkr-grid.featured-row .speakers-wrapper .spkr .content p {
-		margin-bottom: 5px;
-	}
-	/* Speaker Image Stylings */
-	 .spkr-grid.featured-row .speakers-wrapper .spkr img  {
-		width: 100%;
-		height: 100%;
-		filter: brightness(90%) grayscale(20%);
-		transition: linear 200ms;
-	}
-	 .spkr-grid.featured-row .speakers-wrapper .spkr img:hover {
-		filter: brightness(100%) grayscale(0%);
-	}
+    .spkr-grid.featured-row .speakers-wrapper .spkr .content {
+      text-align: left;
+      position: absolute;
+      bottom: 0;
+      padding-left: 10px;
+      text-shadow: 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.7);
+    }
 
+    .spkr-grid.featured-row .speakers-wrapper .featured-spkr .content {
+      font-size: 1.3rem;
+    }
+
+    .spkr-grid.featured-row .speakers-wrapper .spkr .content p {
+      margin-bottom: 5px;
+    }
+
+    /* Speaker Image Stylings */
+    .spkr-grid.featured-row .speakers-wrapper .spkr img {
+      width: 100%;
+      height: 100%;
+      filter: brightness(90%) grayscale(20%);
+      transition: linear 200ms;
+    }
+
+    .spkr-grid.featured-row .speakers-wrapper .spkr img:hover {
+      filter: brightness(100%) grayscale(0%);
+    }
   </style>
 
   <script src="admin.js"></script>
-  <!-- <script>
 
-    const data = [
-      {
-        img: 'https://webdemo1.wbresearch.com/UploadedFiles/EventPage/1003574/uploads/2020-0000-zak-norm-lg.jpg',
-        name: 'Zak Normandin',
-        title: 'CEO/Founder',
-        company: 'Dirty Lemon',
-      },
-      {
-        img: 'https://webdemo1.wbresearch.com/UploadedFiles/EventPage/1003574/uploads/2020-0004-sandra-campos.jpg',
-        name: 'Sandra Campos',
-        title: 'CEO',
-        company: 'DVF',
-      },
-      {
-        img: 'https://webdemo1.wbresearch.com/UploadedFiles/EventPage/1003574/uploads/2020-0010-cheryl-kaplan.jpg',
-        name: 'Cheryl Kaplan',
-        title: 'President',
-        company: 'M.Gemi',
-      },
-      {
-        img: 'https://webdemo1.wbresearch.com/UploadedFiles/EventPage/1003574/uploads/2020-0006-michelle-cordeiro-grant.jpg',
-        name: 'Michelle Cordeiro Grant',
-        title: 'Founder & CEO',
-        company: 'LIVELY',
-      },
-      {
-        img: 'https://webdemo1.wbresearch.com/UploadedFiles/EventPage/1003574/uploads/2020-0013-alex-odell.jpg',
-        name: 'Alex O’Dell',
-        title: 'Founder',
-        company: 'Floyd',
-      },
-
-    ]
-
-
-
-    const domMessages = {
-      enoughSpeakers() {
-        return 'You have enough speakers for featured speaker layout'
-      },
-      notEnough() {
-        return 'Not Enough Speakers'
-      },
-      tooMany() {
-        return 'Too Many Speakers'
-      }
-    }
-
-    const instructionsCopy = document.querySelector('.instructions span');
-    const spkrContainer = document.querySelector('.spkr-container');
-    const addRowButton = document.querySelector('.add-row-btn');
-    const addSpkrButton = document.querySelector('.add-spkr-btn');
-    instructionsCopy.style = "color:#ff9a69;"
-    let counter = 0;
-
-    // Button Functionality
-    const addSpkrRow = function () {
-      const createSpkrGrid = document.createElement('div');
-      createSpkrGrid.classList.add('row', 'spkr-grid');
-      spkrContainer.appendChild(createSpkrGrid);
-      createSpkrDivContents(createSpkrGrid, counter)
-    }
-
-    const createSpkrDivContents = function (createSpkrGrid, counter) {
-      addSpkrButton.addEventListener('click', function () {
-        const getSpeakers = Array.from(document.querySelectorAll('.spkr'));
-        const createSpkrDiv = document.createElement('div');
-        createSpkrDiv.classList.add('spkr');
-        //
-        const createRadioBtnsDiv = document.createElement('div');
-        createRadioBtnsDiv.classList.add('radio-btn')
-        createSpkrDiv.appendChild(createRadioBtnsDiv);
-        //
-        const createRadioBtnsInput = document.createElement('input');
-        createRadioBtnsInput.setAttribute("type", "radio");
-        createRadioBtnsInput.setAttribute("id", `radio-${getSpeakers.length}`);
-        createRadioBtnsInput.setAttribute("name", "featured");
-        createRadioBtnsInput.setAttribute("value", `radio-${getSpeakers.length}`);
-        createRadioBtnsDiv.appendChild(createRadioBtnsInput);
-        //
-        const createRadioBtnsLabel = document.createElement('label');
-        createRadioBtnsLabel.setAttribute("for", `radio-${getSpeakers.length}`);
-        createRadioBtnsLabel.innerText = 'Featured?'
-        createRadioBtnsDiv.appendChild(createRadioBtnsLabel);
-        //
-        const createImage = document.createElement('img');
-        createImage.classList.add('img-fluid')
-        createImage.setAttribute("src", data[`${counter}`]['img']);
-        createSpkrDiv.appendChild(createImage);
-        //
-        const createContentDiv = document.createElement('div');
-        createContentDiv.classList.add('content')
-        createSpkrDiv.appendChild(createContentDiv);
-        //
-        const createContentPar = document.createElement('p');
-        createContentPar.classList.add('text-white')
-        createContentPar.innerHTML =
-          `
-          <span class="spkr-name">${data[`${counter}`]['name']}</span> <br>
-          <span class="spkr-title">${data[`${counter}`]['title']}</span> <br>
-          <span class="spkr-company"><strong>${data[`${counter}`]['company']}</strong></span>
-        `
-        createContentDiv.appendChild(createContentPar);
-        //
-        counter++
-        //
-        addSpkrDivs(createSpkrGrid, counter, createSpkrDiv, getSpeakers)
-        addRadioBtns()
-      });
-    }
-
-    const addSpkrDivs = function (createSpkrGrid, counter, createSpkrDiv, getSpeakers) {
-      if (spkrContainer.children.length == 1) {
-        console.log(counter)
-          createSpkrGrid.appendChild(createSpkrDiv);
-        } else if (spkrContainer.children.length > 1) {
-          createSpkrGrid.appendChild(createSpkrDiv);
-        }
-    }
-
-    const addRadioBtns = function () {
-      const radioBtns = document.querySelectorAll('[id^="radio-"]');
-      radioBtns.forEach(function (radioBtn) {
-        radioBtn.addEventListener('click', getImages);
-      });
-    }
-
-    const getImages = function (e) {
-      let getSpeakersRow = e.target.closest('.spkr-grid');
-      let getSpeakers = Array.from(getSpeakersRow.children);
-      let getImageDiv = e.target.closest('.spkr');
-
-      if (getSpeakers.length === 5) {
-        addFeaturedClassToImage(getSpeakers, getImageDiv);
-        addFeaturedClassToRow(getSpeakersRow);
-        instructionsCopy.innerText = domMessages.enoughSpeakers();
-      } else if (getSpeakers.length < 5) {
-        instructionsCopy.innerText = domMessages.notEnough();
-      } else {
-        instructionsCopy.innerText = domMessages.tooMany();
-      }
-    }
-
-    const addFeaturedClassToImage = function (getSpeakers, getImageDiv) {
-      getSpeakers.forEach(function (speaker) {
-        if (speaker.classList.contains('featured-spkr')) {
-          speaker.classList.remove('featured-spkr');
-        }
-        getImageDiv.classList.add('featured-spkr');
-      })
-    }
-
-    const addFeaturedClassToRow = function (getSpeakersRow) {
-      if (getSpeakersRow.classList.contains('spkr-grid')) {
-        getSpeakersRow.classList.add('featured-row');
-      }
-    }
-
-    // Event Listeners
-    addRowButton.addEventListener('click', addSpkrRow);
-  </script> -->
 </body>
 
 </html>
